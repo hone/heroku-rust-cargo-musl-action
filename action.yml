@@ -1,0 +1,15 @@
+name: 'Rust MUSL Compile'
+description: 'Compile'
+author: 'Terence Lee'
+inputs:
+  cargo-flags:
+    description: 'flags passed to cargo build'
+    required: false
+ouputs:
+  release-dir:
+    description: 'directory where the binaries are put'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.cargo-flags }}
