@@ -2,7 +2,11 @@ name: 'Rust MUSL Compile'
 description: 'Compile'
 author: 'Terence Lee'
 inputs:
-  cargo-flags:
+  command:
+    description: 'cargo command'
+    required: false
+    default: 'build'
+  flags:
     description: 'flags passed to cargo build'
     required: false
 ouputs:
@@ -12,4 +16,5 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.cargo-flags }}
+    - ${{ inputs.command }}
+    - ${{ inputs.flags }}
