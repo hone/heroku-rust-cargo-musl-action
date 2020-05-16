@@ -26,7 +26,7 @@ If the `command` input is set to `build`, then this will be to te the target rel
 To run tests with `cargo test`:
 
 ### GitHub Action Config
-```
+```YAML
 - uses: actions/checkout@v2
 - uses: hone/heroku-rust-cargo-musl-action@v1
   with:
@@ -37,7 +37,7 @@ To run tests with `cargo test`:
 To cross compile a rust binary that targets a 64-bit musl linux binary that vendors OpenSSL with a binary called `binary` the configuration will look like the following:
 
 ### `Cargo.toml`
-```
+```TOML
 [features]
 # Force openssl-sys to staticly link in the openssl library. Necessary when
 # cross compiling to x86_64-unknown-linux-musl.
@@ -45,7 +45,7 @@ vendored-openssl = ["openssl-sys/vendored"]
 ```
 
 ### GitHub Action Config
-```
+```YAML
 - uses: actions/checkout@v2
 - id: 'compile'
   uses: hone/heroku-rust-cargo-musl-action@v1
