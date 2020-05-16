@@ -1,5 +1,5 @@
 # Heroku Rust Cargo Action with MUSL Target
-This action sets up `cargo` and the `x86_64-unknown-linux-musl` target for handling cross compiling builds.
+This action sets up `cargo` and the `x86_64-unknown-linux-musl` target for handling cross compiling builds on the Heroku stack.
 
 ## Inputs
 
