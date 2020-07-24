@@ -6,7 +6,8 @@ ENV CARGO_HOME=/cargo
 ENV PATH=/cargo/bin:/rust/bin:$PATH
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --profile minimal
 RUN rustup target add x86_64-unknown-linux-musl
-RUN useradd -m rust
 COPY entrypoint.sh /entrypoint.sh
+RUN find / -perm /6000 -type f -exec chmod a-s {} \; || true
+RUN useradd -d /home/rust -m -s /bin/bash rust
 USER rust
 ENTRYPOINT ["/entrypoint.sh"]
